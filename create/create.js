@@ -2,16 +2,18 @@ import {
     createBunny, 
     getFamilies, 
     checkAuth, 
-    logout 
+    logout, 
+    createFamily
 } from '../fetch-utils.js';
 
-const form = document.querySelector('.bunny-form');
+const bunnyForm = document.querySelector('.bunny-form');
+const familyForm = document.querySelector('.family-form');
 const logoutButton = document.getElementById('logout');
 
-form.addEventListener('submit', async(e) => {
+bunnyForm.addEventListener('submit', async(e) => {
     e.preventDefault();
 
-    const data = new FormData(form);
+    const data = new FormData(bunnyForm);
     const name = data.get('bunny-name');
     const familyId = data.get('family-id');
 
@@ -20,7 +22,18 @@ form.addEventListener('submit', async(e) => {
         family_id: familyId
     });
 
-    form.reset();
+    bunnyForm.reset();
+});
+
+familyForm.addEventListener('submit', async(e) => {
+    e.preventDefault();
+
+    const data = new FormData(familyForm);
+    const name = data.get('family-name');
+
+    const newFamily = await createFamily({ name });
+    console.log(newFamily);
+    familyForm.reset();
 });
 
 window.addEventListener('load', async() => {
