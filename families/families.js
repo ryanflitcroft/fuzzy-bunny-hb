@@ -28,9 +28,8 @@ async function displayFamilies(families) {
         bunniesEl.classList.add('bunnies');
         // put the family name in the name element
         nameEl.textContent = `${family.name}`;
-
         // for each of this family's bunnies
-        for (let bunny of family.bunnies) {
+        for (let bunny of family.fuzzy_bunnies) {
             const bunnyEl = document.createElement('span');
             // make an element with the css class 'bunny', and put the bunny's name in the text content
             bunnyEl.classList.add('bunny');
@@ -38,8 +37,9 @@ async function displayFamilies(families) {
         
             // add an event listener to the bunny el. On click, delete the bunny, then refetch and redisplay all families.
             bunnyEl.addEventListener('click', async() => {
-                await deleteBunny();
-                await displayFamilies();
+                await deleteBunny(bunny.id);
+                const families = await getFamilies();
+                await displayFamilies(families);
             });
 
             // append this bunnyEl to the bunniesEl

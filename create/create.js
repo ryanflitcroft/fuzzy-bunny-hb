@@ -16,10 +16,13 @@ form.addEventListener('submit', async(e) => {
     const name = data.get('bunny-name');
     const familyId = data.get('family-id');
     // use createBunny to create a bunny with this name and family id
+    // const newBunny = `${name}${familyId}`;
+    // console.log(newBunny);
     await createBunny({
         name,
         family_id: familyId
     });
+
     form.reset();
 });
 
