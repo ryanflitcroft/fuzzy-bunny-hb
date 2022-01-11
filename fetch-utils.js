@@ -15,6 +15,16 @@ export async function getFamilies() {
     return checkError(response);    
 }
 
+export async function getBunny(id) {
+    const response = await client
+        .from('fuzzy_bunnies')
+        .select()
+        .match({ id })
+        .single();
+
+    return checkError(response);
+}
+
 export async function deleteBunny(id) {
     const response = await client
         .from('fuzzy_bunnies')

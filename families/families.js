@@ -30,11 +30,11 @@ async function displayFamilies(families) {
 
         for (let bunny of family.fuzzy_bunnies) {
             const bunnyEl = renderBunny(bunny);
-
             bunnyEl.addEventListener('click', async() => {
-                await deleteBunny(bunny.id);
-                const families = await getFamilies();
-                await displayFamilies(families);
+                // await deleteBunny(bunny.id);
+                // const families = await getFamilies();
+                // await displayFamilies(families);
+                
             });
 
             bunniesEl.append(bunnyEl);
