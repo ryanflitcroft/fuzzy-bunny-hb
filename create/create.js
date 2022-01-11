@@ -31,8 +31,7 @@ familyForm.addEventListener('submit', async(e) => {
     const data = new FormData(familyForm);
     const name = data.get('family-name');
 
-    const newFamily = await createFamily({ name });
-    console.log(newFamily);
+    await createFamily({ name });
     familyForm.reset();
 });
 
