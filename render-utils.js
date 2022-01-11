@@ -1,4 +1,4 @@
-import { deleteBunny, updateFamily } from './fetch-utils.js';
+import { deleteBunny } from './fetch-utils.js';
 
 export function renderBunny(bunny) {
     const bunnyEl = document.createElement('a');
