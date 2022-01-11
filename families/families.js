@@ -29,7 +29,6 @@ async function displayFamilies(families) {
 
         for (let bunny of family.fuzzy_bunnies) {
             const bunnyEl = renderBunny(bunny);
-            
             bunniesEl.append(bunnyEl);
         }  
 
