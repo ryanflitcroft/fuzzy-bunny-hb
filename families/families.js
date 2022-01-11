@@ -1,6 +1,5 @@
 import { 
     checkAuth, 
-    deleteBunny,
     getFamilies, 
     logout,
 } from '../fetch-utils.js';
@@ -30,13 +29,7 @@ async function displayFamilies(families) {
 
         for (let bunny of family.fuzzy_bunnies) {
             const bunnyEl = renderBunny(bunny);
-            bunnyEl.addEventListener('click', async() => {
-                // await deleteBunny(bunny.id);
-                // const families = await getFamilies();
-                // await displayFamilies(families);
-                
-            });
-
+            
             bunniesEl.append(bunnyEl);
         }  
 
